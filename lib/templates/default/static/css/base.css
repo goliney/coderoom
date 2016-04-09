@@ -1,0 +1,13 @@
+html {
+    background-color: #e3f2f0;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+#editor {
+    position: relative;
+    width: 500px;
+    height: 400px;
+}

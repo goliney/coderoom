@@ -1,0 +1,12 @@
+{{#each items}}
+<li>
+    {{#if isDir}}
+    {{name}}
+    <ul>
+        {{> menu with depth=../depth items=items base=(path_join ../base @index)}}
+    </ul>
+    {{else}}
+    <a href="{{root ../depth}}{{path_join ../base @index }}/index.html">{{name}}</a>
+    {{/if}}
+</li>
+{{/each}}

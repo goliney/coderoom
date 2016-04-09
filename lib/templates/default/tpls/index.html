@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Samples{{#if item}} - {{item.name}}{{/if}}</title>
+
+    {{> head_extra with css_paths=config.static_css depth=depth}}
+</head>
+<body>
+    <!-- menu -->
+    <ul>
+        {{> menu with depth=depth items=items base='tpls'}}
+    </ul>
+    <!-- /end menu -->
+
+    {{#if depth}}
+    <!-- code snippet -->
+    <div id="editor">{{snippet}}</div>
+    <!-- /end code snippet -->
+
+    <!-- iframe -->
+    <div class="iframe-wrapper">
+        <iframe src="./iframe.html" frameborder="0"></iframe>
+    </div>
+    <!-- /end iframe -->
+    {{else}}
+    <h3>Pick snippet from the menu</h3>
+    {{/if}}
+
+    {{> body_extra with js_paths=config.static_js depth=depth}}
+</body>
+</html>

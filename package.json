@@ -1,0 +1,22 @@
+{
+  "name": "coderoom",
+  "version": "0.1.0",
+  "description": "Code snippets preview generator",
+  "main": "lib/coderoom",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/goliney/coderoom.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sergey Goliney <sergey@goliney.com> (http://goliney.com)",
+  "license": "MIT",
+  "dependencies": {
+    "common-path-prefix": "^1.0.0",
+    "fs-extra": "^0.26.7",
+    "glob": "7.0.3",
+    "handlebars": "^4.0.5",
+    "lodash": "^4.7.0"
+  }
+}
