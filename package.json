@@ -1,6 +1,6 @@
 {
   "name": "coderoom",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Code snippets preview generator",
   "main": "lib/coderoom",
   "repository": {
