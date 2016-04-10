@@ -7,25 +7,32 @@
     {{> head_extra with css_paths=config.static_css depth=depth}}
 </head>
 <body>
-    <!-- menu -->
-    <ul>
-        {{> menu with depth=depth items=items base='tpls'}}
-    </ul>
-    <!-- /end menu -->
 
-    {{#if depth}}
-    <!-- code snippet -->
-    <div id="editor">{{snippet}}</div>
-    <!-- /end code snippet -->
+    <div id="wrapper">
+        <div id="content">
+            {{#if depth}}
+            <!-- code snippet -->
+            <div id="editor" class="invisible">{{snippet}}</div>
+            <!-- /end code snippet -->
 
-    <!-- iframe -->
-    <div class="iframe-wrapper">
-        <iframe src="./iframe.html" frameborder="0"></iframe>
+            <!-- iframe -->
+            <div id="iframe">
+                <iframe src="./iframe.html" frameborder="0"></iframe>
+            </div>
+            <!-- /end iframe -->
+            {{else}}
+            <div id="landing">&#8592; Pick code sample to begin</div>
+            {{/if}}
+        </div>
     </div>
-    <!-- /end iframe -->
-    {{else}}
-    <h3>Pick snippet from the menu</h3>
-    {{/if}}
+
+    <!-- menu -->
+    <nav id="menu">
+        <ul>
+            {{> menu with depth=depth items=items base='tpls'}}
+        </ul>
+    </nav>
+    <!-- /end menu -->
 
     {{> body_extra with js_paths=config.static_js depth=depth}}
 </body>

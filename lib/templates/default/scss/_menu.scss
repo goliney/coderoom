@@ -1,0 +1,53 @@
+#menu {
+  box-sizing: border-box;
+  width: $menu_width;
+  background-color: $menu_bg;
+  color: $menu_color_bright;
+  font-size: $menu_font_size;
+  padding-top: $menu_gutter * 2;
+  overflow: auto;
+
+  a,
+  a:visited,
+  a:hover {
+    display: block;
+    color: $menu_color_dim;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $menu_color_bright;
+  }
+
+  .dir-name,
+  .link {
+    padding: 7px $menu_gutter 7px 0px;
+
+    &.active {
+      color: $menu_active_color;
+    }
+  }
+
+  .dir-name {
+    font-weight: 700;
+  }
+
+  ul {
+    li {
+      padding-left: $menu_gutter;
+    }
+  }
+
+  > ul {
+
+    > li {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid $menu_separator_color;
+    }
+
+    > li:first-child {
+      border-top: 1px solid $menu_separator_color;
+    }
+  }
+}

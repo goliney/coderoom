@@ -1,0 +1,28 @@
+//common
+$base_font_family:  Arial, Helvetica, sans-serif;
+$base_font_size:    14px;
+$base_font_color:   #fff;
+$base_min_width:    1050px;
+
+//landing
+$landing_bg_color:      #fff;
+$landing_font_color:    #dcdcdc;
+$landing_font_size:     2em;
+$landing_gutter:        100px;
+
+// menu
+$menu_width:            250px;
+$menu_gutter:           20px;
+$menu_bg:               #1b1c1d;
+$menu_color_dim:        rgba(255, 255, 255, 0.5);
+$menu_color_bright:     rgba(255, 255, 255, 0.9);
+$menu_separator_color:  rgba(255,255,255,.08);
+$menu_active_color:     #6ce0e0;
+$menu_font_size:        1em;
+
+//editor
+$editor_width:          50%;
+
+// iframe
+$iframe_width:            100% - $editor_width;
+$iframe_separator_color:  #dcdcdc;

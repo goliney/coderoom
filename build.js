@@ -2,4 +2,4 @@
 
 const sampler = require('./lib/coderoom');
 
-sampler.build('example/samples/src', 'example/samples/build/');
+sampler.build('example/coderoom/src', 'example/coderoom/build/');
