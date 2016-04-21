@@ -4,8 +4,15 @@
   background-color: $menu_bg;
   color: $menu_color_bright;
   font-size: $menu_font_size;
-  padding-top: $menu_gutter * 2;
+  padding-top: $menu_gutter;
   overflow: auto;
+
+  header {
+    margin-bottom: $menu_gutter;
+    margin-left: $menu_gutter;
+    margin-right: $menu_gutter;
+    font-size: 1.2em;
+  }
 
   a,
   a:visited,
@@ -21,7 +28,7 @@
 
   .dir-name,
   .link {
-    padding: 7px $menu_gutter 7px 0px;
+    padding: 4px $menu_gutter 4px 0px;
 
     &.active {
       color: $menu_active_color;

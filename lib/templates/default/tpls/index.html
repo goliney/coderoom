@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Samples{{#if item}} - {{item.name}}{{/if}}</title>
+    <title>{{#if item}}{{item.name}} - {{/if}}{{#if options.title}}{{options.title}} - {{/if}}Coderoom</title>
 
     {{> head_extra with css_paths=config.static_css depth=depth}}
 </head>
@@ -28,6 +28,9 @@
 
     <!-- menu -->
     <nav id="menu">
+        {{#if options.title}}
+        <header>{{options.title}}</header>
+        {{/if}}
         <ul>
             {{> menu with depth=depth items=items base='tpls'}}
         </ul>

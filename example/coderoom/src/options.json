@@ -1,4 +1,5 @@
 {
+  "title": "Bootstrap v3.3.6 - CSS",
   "media": [
     "./example/bootstrap-3.3.6-dist/**/*"
   ],
