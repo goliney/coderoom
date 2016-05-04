@@ -1,0 +1,63 @@
+#sidebar {
+  box-sizing: border-box;
+  width: $sidebar_width;
+  background-color: $sidebar_bg;
+  color: $sidebar_color_bright;
+  font-size: $sidebar_font_size;
+  padding-top: $sidebar_gutter;
+  overflow: auto;
+
+  header {
+    margin-bottom: $sidebar_gutter;
+    margin-left: $sidebar_gutter;
+    margin-right: $sidebar_gutter;
+    font-size: 1.2em;
+
+    a {
+      color: $sidebar_color_bright;
+      text-decoration: none;
+    }
+  }
+
+  #menu {
+
+    a,
+    a:visited,
+    a:hover {
+      display: block;
+      color: $sidebar_color_dim;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: $sidebar_color_bright;
+    }
+
+    .dir-name,
+    .link {
+      padding: 4px $sidebar_gutter 4px 0px;
+
+      &.active {
+        color: $sidebar_active_color;
+      }
+    }
+
+    .dir-name {
+      font-weight: 700;
+    }
+
+    li {
+      padding-left: $sidebar_gutter;
+    }
+
+    > li {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid $sidebar_separator_color;
+    }
+
+    > li:first-child {
+      border-top: 1px solid $sidebar_separator_color;
+    }
+  }
+}

@@ -19,23 +19,23 @@ body {
 #content,
 #editor,
 #iframe,
-#menu {
+#sidebar {
   max-height: 100%;
   height: 100%;
 }
 
-#menu {
+#sidebar {
   float: left;
 }
 
 #wrapper {
   width: 100%;
   float: right;
-  margin-left: -$menu_width;
+  margin-left: -$sidebar_width;
 }
 
 #content {
-  margin-left: $menu_width;
+  margin-left: $sidebar_width;
 }
 
 #editor,

@@ -13,29 +13,33 @@
             {{#if depth}}
             <!-- code snippet -->
             <div id="editor" class="invisible">{{snippet}}</div>
-            <!-- /end code snippet -->
+            <!-- /code snippet -->
 
             <!-- iframe -->
             <div id="iframe">
                 <iframe src="./iframe.html" frameborder="0"></iframe>
             </div>
-            <!-- /end iframe -->
+            <!-- /iframe -->
             {{else}}
+            <!-- landing -->
             <div id="landing">&#8592; Pick code sample to begin</div>
+            <!-- /landing -->
             {{/if}}
         </div>
     </div>
 
-    <!-- menu -->
-    <nav id="menu">
+    <!-- sidebar -->
+    <section id="sidebar">
         {{#if options.title}}
-        <header>{{options.title}}</header>
+        <header>
+            <a href="{{root depth}}index.html">{{options.title}}</a>
+        </header>
         {{/if}}
-        <ul>
+        <ul id="menu">
             {{> menu with depth=depth items=items base='tpls'}}
         </ul>
-    </nav>
-    <!-- /end menu -->
+    </section>
+    <!-- /sidebar -->
 
     {{> body_extra with js_paths=config.static_js depth=depth}}
 </body>
