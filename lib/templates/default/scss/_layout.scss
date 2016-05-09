@@ -8,28 +8,40 @@ html, body {
 }
 
 #sidebar {
+  position: relative;
   width: $sidebar_width;
+  z-index: 100;
 }
 
 #main {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
 
-#op-menu {
-  height: $op_height;
-}
+  #op-menu {
+    height: $op_height;
+  }
 
-#content {
-  flex: 1;
-  display: flex;
-}
+  #content {
+    flex: 1;
+    display: flex;
 
-#editor {
-  width: 50%;
-}
+    #editor {
+      flex: 1;
+      position: relative;
+      z-index: 80;
+    }
 
-#iframe {
-  flex: 1;
+    #iframe {
+      position: relative;
+      width: $iframe_init_width;
+      z-index: 80;
+    }
+
+    #resize-handle {
+      position: relative;
+      width: $resize_handle_width;
+      z-index: 90;
+    }
+  }
 }

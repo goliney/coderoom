@@ -1,35 +1,39 @@
 //common
-$body_font_family:  Arial, Helvetica, sans-serif;
-$body_font_size:    14px;
-$body_font_color:   #fff;
-$body_min_width:    1050px;
+$body_font_family:          Arial, Helvetica, sans-serif;
+$body_font_size:            14px;
+$body_font_color:           #fff;
+$body_min_width:            1050px;
 
 //landing
-$landing_bg_color:      #fff;
-$landing_font_color:    #dcdcdc;
-$landing_font_size:     2em;
-$landing_gutter:        100px;
+$landing_bg_color:          #fff;
+$landing_font_color:        #dcdcdc;
+$landing_font_size:         2em;
+$landing_gutter:            100px;
 
 // sidebar
-$sidebar_width:            220px;
-$sidebar_gutter:           15px;
-$sidebar_bg:               #1b1c1d;
-$sidebar_color_dim:        rgba(255, 255, 255, 0.5);
-$sidebar_color_bright:     rgba(255, 255, 255, 0.9);
-$sidebar_separator_color:  rgba(255,255,255,.08);
-$sidebar_active_color:     #6ce0e0;
-$sidebar_font_size:        0.87em;
+$sidebar_width:             220px;
+$sidebar_gutter:            15px;
+$sidebar_bg:                #1b1c1d;
+$sidebar_color_dim:         rgba(255, 255, 255, 0.5);
+$sidebar_color_bright:      rgba(255, 255, 255, 0.9);
+$sidebar_separator_color:   rgba(255,255,255,.08);
+$sidebar_active_color:      #6ce0e0;
+$sidebar_font_size:         0.87em;
 
 // operational menu
-$op_height:               0;
-$op_bg:                   $sidebar_bg;
-$op_color_dim:            $sidebar_color_dim;
-$op_color_bright:         $sidebar_color_bright;
-$op_active_color:         $sidebar_active_color;
+$op_height:                 0px;
+$op_bg:                     $sidebar_bg;
+$op_color_dim:              $sidebar_color_dim;
+$op_color_bright:           $sidebar_color_bright;
+$op_active_color:           $sidebar_active_color;
 
-//editor
-$editor_width:          50%;
+// editor
+$editor_init_width:         50%;
 
 // iframe
-$iframe_width:            100% - $editor_width;
-$iframe_separator_color:  #dcdcdc;
+$iframe_init_width:         100% - $editor_init_width;
+
+// resize-handle
+$resize_handle_width:       1px;
+$resize_handle_gutter:      3px;
+$resize_handle_bg:          #dcdcdc;

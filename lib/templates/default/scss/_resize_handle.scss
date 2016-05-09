@@ -1,0 +1,12 @@
+#resize-handle {
+  background-color: $resize_handle_bg;
+  cursor: ew-resize;
+
+  #knob {
+    position: absolute;
+    width: $resize_handle_width + $resize_handle_gutter * 2;
+    left: -$resize_handle_gutter;
+    top: 0;
+    bottom: 0;
+  }
+}
