@@ -1,9 +1,7 @@
 html,
 body {
-  font-family: $base_font_family;
-  font-size: $base_font_size;
-  height: 100%;
-  min-width: $base_min_width;
+  font-family: $body_font_family;
+  font-size: $body_font_size;
 }
 
 .hidden {
@@ -12,33 +10,4 @@ body {
 
 .invisible {
   visibility: hidden;
-}
-
-#wrapper,
-#landing,
-#content,
-#editor,
-#iframe,
-#sidebar {
-  max-height: 100%;
-  height: 100%;
-}
-
-#sidebar {
-  float: left;
-}
-
-#wrapper {
-  width: 100%;
-  float: right;
-  margin-left: -$sidebar_width;
-}
-
-#content {
-  margin-left: $sidebar_width;
-}
-
-#editor,
-#iframe {
-  float: left;
 }

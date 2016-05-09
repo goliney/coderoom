@@ -7,27 +7,6 @@
     {{> head_extra with css_paths=config.static_css depth=depth}}
 </head>
 <body>
-
-    <div id="wrapper">
-        <div id="content">
-            {{#if depth}}
-            <!-- code snippet -->
-            <div id="editor" class="invisible">{{snippet}}</div>
-            <!-- /code snippet -->
-
-            <!-- iframe -->
-            <div id="iframe">
-                <iframe src="./iframe.html" frameborder="0"></iframe>
-            </div>
-            <!-- /iframe -->
-            {{else}}
-            <!-- landing -->
-            <div id="landing">&#8592; Pick code sample to begin</div>
-            <!-- /landing -->
-            {{/if}}
-        </div>
-    </div>
-
     <!-- sidebar -->
     <section id="sidebar">
         {{#if options.title}}
@@ -40,6 +19,36 @@
         </ul>
     </section>
     <!-- /sidebar -->
+
+    <!-- main -->
+    <div id="main">
+        {{#if depth}}
+        <!-- operational menu -->
+        <div id="op-menu">
+            {{> op_menu with depth=depth}}
+        </div>
+        <!-- /operational menu -->
+
+        <!-- content -->
+        <div id="content">
+            <!-- code snippet -->
+            <div id="editor" class="invisible">{{snippet}}</div>
+            <!-- /code snippet -->
+
+            <!-- iframe -->
+            <div id="iframe">
+                <iframe src="./iframe.html" frameborder="0"></iframe>
+            </div>
+            <!-- /iframe -->
+        </div>
+        {{else}}
+        <!-- landing -->
+        <div id="landing">&#8592; Pick code sample to show</div>
+        <!-- /landing -->
+        {{/if}}
+        <!-- /content -->
+    </div>
+    <!-- /main -->
 
     {{> body_extra with js_paths=config.static_js depth=depth}}
 </body>

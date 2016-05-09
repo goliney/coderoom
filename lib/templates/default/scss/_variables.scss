@@ -1,8 +1,8 @@
 //common
-$base_font_family:  Arial, Helvetica, sans-serif;
-$base_font_size:    14px;
-$base_font_color:   #fff;
-$base_min_width:    1050px;
+$body_font_family:  Arial, Helvetica, sans-serif;
+$body_font_size:    14px;
+$body_font_color:   #fff;
+$body_min_width:    1050px;
 
 //landing
 $landing_bg_color:      #fff;
@@ -10,15 +10,22 @@ $landing_font_color:    #dcdcdc;
 $landing_font_size:     2em;
 $landing_gutter:        100px;
 
-// menu
-$sidebar_width:            250px;
-$sidebar_gutter:           20px;
+// sidebar
+$sidebar_width:            220px;
+$sidebar_gutter:           15px;
 $sidebar_bg:               #1b1c1d;
 $sidebar_color_dim:        rgba(255, 255, 255, 0.5);
 $sidebar_color_bright:     rgba(255, 255, 255, 0.9);
 $sidebar_separator_color:  rgba(255,255,255,.08);
 $sidebar_active_color:     #6ce0e0;
-$sidebar_font_size:        1em;
+$sidebar_font_size:        0.87em;
+
+// operational menu
+$op_height:               0px;
+$op_bg:                   $sidebar_bg;
+$op_color_dim:            $sidebar_color_dim;
+$op_color_bright:         $sidebar_color_bright;
+$op_active_color:         $sidebar_active_color;
 
 //editor
 $editor_width:          50%;
