@@ -7,10 +7,5 @@
     display: block;
     width: 100%;
     height: 100%;
-
-  }
-
-  &.resizing iframe {
-    pointer-events: none; // see: http://stackoverflow.com/questions/5645485/detect-mousemove-when-over-an-iframe
   }
 }
