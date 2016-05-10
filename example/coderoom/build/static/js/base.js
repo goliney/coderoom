@@ -53,7 +53,7 @@
                     var delta = initialX - e.pageX;
                     if (editorWidth - delta > minWidth && iframeWidth + delta > minWidth) {
                         var percentage = (iframeWidth + delta) * 100 / contentWidth;
-                        $iframeEl.css('width', iframeWidth + delta + 'px');
+                        $iframeEl.css('width', percentage + '%');
                         editor.resize();
                     }
                 },
