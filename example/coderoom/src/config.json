@@ -8,6 +8,6 @@
   ],
   "css": [
     "./example/bootstrap-3.3.6-dist/css/bootstrap.css",
-    "./example/my_css/**/*.css"
+    "./example/my_css/foo.css"
   ]
 }

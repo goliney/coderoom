@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{#if item}}{{item.name}} - {{/if}}{{#if options.title}}{{options.title}} - {{/if}}Coderoom</title>
+    <title>{{#if item}}{{item.name}} - {{/if}}{{#if config.title}}{{config.title}} - {{/if}}Coderoom</title>
 
-    {{> head_extra with css_paths=config.static_css depth=depth}}
+    {{> head_extra with css_paths=settings.static_css depth=depth}}
 </head>
 <body>
     <!-- sidebar -->
     <section id="sidebar">
-        {{#if options.title}}
+        {{#if config.title}}
         <header>
-            <a href="{{root depth}}index.html">{{options.title}}</a>
+            <a href="{{root depth}}index.html">{{config.title}}</a>
         </header>
         {{/if}}
         <ul id="menu">
@@ -56,6 +56,6 @@
 
     <div id="backdrop" class="hidden"></div>
 
-    {{> body_extra with js_paths=config.static_js depth=depth}}
+    {{> body_extra with js_paths=settings.static_js depth=depth}}
 </body>
 </html>
