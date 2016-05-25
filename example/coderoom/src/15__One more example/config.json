@@ -1,0 +1,5 @@
+{
+  "media": [
+    "./example/my_css/**/*.css"
+  ]
+}
