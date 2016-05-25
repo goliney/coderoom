@@ -4,7 +4,7 @@
     "./example/bootstrap-3.3.6-dist/**/*"
   ],
   "media": [
-    "./example/bootstrap-3.3.6-dist/css/bootstrap.js",
+    "./example/bootstrap-3.3.6-dist/js/bootstrap.js",
     "./example/bootstrap-3.3.6-dist/css/bootstrap.css",
     "./example/my_css/foo.css"
   ]

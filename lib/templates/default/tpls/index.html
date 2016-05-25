@@ -2,20 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{#if item}}{{item.name}} - {{/if}}{{#if config.title}}{{config.title}} - {{/if}}Coderoom</title>
+    <title>{{#if config.title}}{{config.title}} - {{/if}}Coderoom</title>
 
     {{> head_extra with css_paths=settings.static_css depth=depth}}
 </head>
 <body>
     <!-- sidebar -->
     <section id="sidebar">
-        {{#if config.title}}
         <header>
-            <a href="{{root depth}}index.html">{{config.title}}</a>
+            <a href="{{path_to_root depth}}index.html">{{root.config.title}}</a>
         </header>
-        {{/if}}
         <ul id="menu">
-            {{> menu with depth=depth items=items base='tpls'}}
+            {{> menu with depth=depth items=root.items base='tpls'}}
         </ul>
     </section>
     <!-- /sidebar -->

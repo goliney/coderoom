@@ -1,12 +1,12 @@
 {{#each items}}
 <li>
-    {{#if isDir}}
-    <div class="dir-name">{{name}}</div>
+    {{#if files}}
+    <a class="link" href="{{path_to_root ../depth}}{{path_join ../base @index }}/index.html">{{config.title}}</a>
+    {{else}}
+    <div class="dir-name">{{config.title}}</div>
     <ul>
         {{> menu with depth=../depth items=items base=(path_join ../base @index)}}
     </ul>
-    {{else}}
-    <a class="link {{markActive }}" href="{{root ../depth}}{{path_join ../base @index }}/index.html">{{name}}</a>
     {{/if}}
 </li>
 {{/each}}
