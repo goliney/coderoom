@@ -2,17 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{item.name}}</title>
 
     {{> head_extra with css_paths=css_paths depth=depth}}
 </head>
 <body>
 
-<!-- file {{item.path}} -->
 
 {{{snippet}}}
 
-<!-- file end -->
 
 {{> body_extra with js_paths=js_paths depth=depth}}
 </body>
