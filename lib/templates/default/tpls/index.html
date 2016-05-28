@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{room.config.title}} - Coderoom</title>
+    <title>{{room.config.title}}{{#if depth}} -{{/if}} Coderoom</title>
 
     {{> head_extra with css_paths=settings.static_css depth=depth}}
 </head>
