@@ -26,6 +26,7 @@
         editor.setShowPrintMargin(false);
         editor.session.setUseWrapMode(true);
         editor.session.setWrapLimitRange();
+        editor.$blockScrolling = Infinity;
 
         var initialPath = $('.show-snippet a.active').data('path');
         show(initialPath);

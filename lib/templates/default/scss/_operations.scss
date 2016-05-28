@@ -16,7 +16,7 @@
 
       .fa {
         font-size: 0.9em;
-        padding-left: 3px;
+        padding-left: 7px;
       }
     }
 
@@ -44,15 +44,16 @@
     }
 
     &:hover {
+      .head {
+        text-decoration: underline;
+      }
+
       .panel {
         display: block;
       }
     }
 
     &.right {
-      float: right;
-      text-align: right;
-
       .panel {
         right: 0;
       }
@@ -61,6 +62,7 @@
     &.disabled {
       .head {
         color: $op_color_dim;
+        text-decoration: none;
       }
 
       .panel {
@@ -73,5 +75,20 @@
       border: 0;
       border-bottom: 1px solid $op_separator_color;
     }
+  }
+
+  .operation {
+    float: left;
+    color: $op_color_dim;
+    padding: 0px $op_gutter;
+
+    &:hover {
+      color: $op_color_bright;
+    }
+  }
+
+  .right {
+    float: right;
+    text-align: right;
   }
 }
