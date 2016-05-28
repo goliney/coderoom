@@ -1,6 +1,6 @@
 {{#each items}}
 <li>
-    {{#if files}}
+    {{#if hasFiles}}
     <a class="link" href="{{path_to_root ../depth}}{{path_join ../base @index }}/index.html">{{config.title}}</a>
     {{else}}
     <div class="dir-name">{{config.title}}</div>

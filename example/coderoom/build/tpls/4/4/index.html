@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Static control - Coderoom</title>
 
+    <link rel="stylesheet" href="../../../static/font-awesome-4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../../static/css/base.css">
 </head>
 <body>
@@ -147,14 +148,53 @@
     <!-- main -->
     <div id="main">
         <!-- operational menu -->
-        <div id="op-menu">
-            operational menu        </div>
-        <!-- /operational menu -->
+        <div id="operations">
+            <!-- choose file to show -->
+            <!-- html -->
+            <div class="dropdown show-snippet ">
+                <div class="head">HTML <i class="fa fa-caret-down"></i></div>
+                <div class="panel">
+                    <a href="#" class="active" data-path="d:/www/coderoom/example/coderoom/src/40__Forms/50__Static control.html">Static control.html</a>
+                </div>
+            </div>
+            <!-- /html -->
+        
+            <!-- css -->
+            <div class="dropdown show-snippet disabled">
+                <div class="head">CSS <i class="fa fa-caret-down"></i></div>
+                <div class="panel">
+                </div>
+            </div>
+            <!-- /css -->
+        
+            <!-- js -->
+            <div class="dropdown show-snippet disabled">
+                <div class="head">JS <i class="fa fa-caret-down"></i></div>
+                <div class="panel">
+                </div>
+            </div>
+            <!-- /js -->
+            <!-- /choose file to show -->
+        
+            <!-- room media-->
+            <div class="dropdown right">
+                <div class="head">Resources <i class="fa fa-caret-down"></i></div>
+                <div class="panel">
+                    <a href="../../../media/vendor/bootstrap-3.3.6-dist/css/bootstrap.css" target="_blank">media/vendor/bootstrap-3.3.6-dist/css/bootstrap.css</a>
+                    <a href="../../../media/css/foo.css" target="_blank">media/css/foo.css</a>
+                    <hr>
+                    <a href="../../../media/vendor/jquery-2.2.3.min.js" target="_blank">media/vendor/jquery-2.2.3.min.js</a>
+                    <a href="../../../media/vendor/bootstrap-3.3.6-dist/js/bootstrap.js" target="_blank">media/vendor/bootstrap-3.3.6-dist/js/bootstrap.js</a>
+                </div>
+            </div>
+        </div>        <!-- /operational menu -->
 
         <!-- content -->
         <div id="content">
-            <!-- code snippet -->
-            <div id="editor" class="invisible">&lt;form class&#x3D;&quot;form-horizontal&quot;&gt;
+            <!-- editor and snippets -->
+            <div id="editor" class="invisible"></div>
+
+            <div class="snippet hidden" data-path="d:/www/coderoom/example/coderoom/src/40__Forms/50__Static control.html" data-mode="html">&lt;form class&#x3D;&quot;form-horizontal&quot;&gt;
     &lt;div class&#x3D;&quot;form-group&quot;&gt;
         &lt;label class&#x3D;&quot;col-sm-2 control-label&quot;&gt;Email&lt;/label&gt;
         &lt;div class&#x3D;&quot;col-sm-10&quot;&gt;
@@ -184,7 +224,7 @@
     &lt;/div&gt;
     &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-default&quot;&gt;Confirm identity&lt;/button&gt;
 &lt;/form&gt;</div>
-            <!-- /code snippet -->
+            <!-- /editor and snippets -->
 
             <div id="resize-handle">
                 <div id="knob"></div>
@@ -206,5 +246,6 @@
     <script src="../../../static/js/vendor/ace/mode-html.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../../static/js/vendor/jquery-2.2.3.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="../../../static/js/base.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../../static/js/editor.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

@@ -14,12 +14,15 @@ html, body {
 }
 
 #main {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
 
-  #op-menu {
+  #operations {
+    position: relative;
     height: $op_height;
+    z-index: 100;
   }
 
   #content {

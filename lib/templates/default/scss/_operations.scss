@@ -1,0 +1,77 @@
+#operations {
+  background-color: $op_bg;
+  color: $op_color_dim;
+  line-height: $op_height;
+  font-size: 0.9em;
+
+  .dropdown {
+    float: left;
+    position: relative;
+
+    .head {
+      padding-left: $op_gutter;
+      padding-right: $op_gutter;
+      color: $op_color_bright;
+      cursor: default;
+
+      .fa {
+        font-size: 0.9em;
+        padding-left: 3px;
+      }
+    }
+
+    .panel {
+      display: none;
+      position: absolute;
+      background-color: $op_bg;
+
+        a {
+          display: block;
+          clear: both;
+          padding: 2px $op_gutter 2px $op_gutter;
+          color: $op_color_dim;
+          white-space: nowrap;
+          text-decoration: none;
+
+          &:hover {
+            color: $op_color_bright;
+          }
+
+          &.active {
+            color: $op_active_color;
+          }
+        }
+    }
+
+    &:hover {
+      .panel {
+        display: block;
+      }
+    }
+
+    &.right {
+      float: right;
+      text-align: right;
+
+      .panel {
+        right: 0;
+      }
+    }
+
+    &.disabled {
+      .head {
+        color: $op_color_dim;
+      }
+
+      .panel {
+        display: none !important;
+      }
+    }
+
+    hr {
+      height: 0;
+      border: 0;
+      border-bottom: 1px solid $op_separator_color;
+    }
+  }
+}

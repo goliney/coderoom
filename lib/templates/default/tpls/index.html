@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{config.title}} - Coderoom</title>
+    <title>{{room.config.title}} - Coderoom</title>
 
     {{> head_extra with css_paths=settings.static_css depth=depth}}
 </head>
@@ -22,16 +22,18 @@
     <div id="main">
         {{#if depth}}
         <!-- operational menu -->
-        <div id="op-menu">
-            {{> op_menu with depth=depth}}
-        </div>
+        {{> operations}}
         <!-- /operational menu -->
 
         <!-- content -->
         <div id="content">
-            <!-- code snippet -->
-            <div id="editor" class="invisible">{{snippet}}</div>
-            <!-- /code snippet -->
+            <!-- editor and snippets -->
+            <div id="editor" class="invisible"></div>
+
+            {{#each roomsFiles}}
+            <div class="snippet hidden" data-path="{{normalized}}" data-mode="{{mode}}">{{content}}</div>
+            {{/each}}
+            <!-- /editor and snippets -->
 
             <div id="resize-handle">
                 <div id="knob"></div>

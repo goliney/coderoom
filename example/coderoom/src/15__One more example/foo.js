@@ -1,1 +1,1 @@
-alert('FOO! I am embeded!');
+document.write('document written');

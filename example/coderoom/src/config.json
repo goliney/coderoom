@@ -1,11 +1,12 @@
 {
   "title": "Bootstrap v3.3.6 - CSS",
   "assets": [
-    "./example/bootstrap-3.3.6-dist/**/*"
+    "./example/vendor/bootstrap-*/**/*"
   ],
   "media": [
-    "./example/bootstrap-3.3.6-dist/js/bootstrap.js",
-    "./example/bootstrap-3.3.6-dist/css/bootstrap.css",
-    "./example/my_css/foo.css"
+    "./example/vendor/jquery-*.js",
+    "./example/vendor/bootstrap-*/css/bootstrap.css*",
+    "./example/vendor/bootstrap-*/js/bootstrap.js",
+    "./example/css/foo.css"
   ]
 }

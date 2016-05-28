@@ -1,0 +1,50 @@
+<div id="operations">
+    <!-- choose file to show -->
+    <!-- html -->
+    <div class="dropdown show-snippet {{#unless room.hasHTML}}disabled{{/unless}}">
+        <div class="head">HTML <i class="fa fa-caret-down"></i></div>
+        <div class="panel">
+            {{#each room.parsedHTMLFiles}}
+            <a href="#" class="{{#if active}}active{{/if}}" data-path="{{normalized}}">{{title}}</a>
+            {{/each}}
+        </div>
+    </div>
+    <!-- /html -->
+
+    <!-- css -->
+    <div class="dropdown show-snippet {{#unless room.hasCSS}}disabled{{/unless}}">
+        <div class="head">CSS <i class="fa fa-caret-down"></i></div>
+        <div class="panel">
+            {{#each room.parsedCSSFiles}}
+            <a href="#" class="{{#if active}}active{{/if}}" data-path="{{normalized}}">{{title}}</a>
+            {{/each}}
+        </div>
+    </div>
+    <!-- /css -->
+
+    <!-- js -->
+    <div class="dropdown show-snippet {{#unless room.hasJS}}disabled{{/unless}}">
+        <div class="head">JS <i class="fa fa-caret-down"></i></div>
+        <div class="panel">
+            {{#each room.parsedJSFiles}}
+            <a href="#" class="{{#if active}}active{{/if}}" data-path="{{normalized}}">{{title}}</a>
+            {{/each}}
+        </div>
+    </div>
+    <!-- /js -->
+    <!-- /choose file to show -->
+
+    <!-- room media-->
+    <div class="dropdown right">
+        <div class="head">Resources <i class="fa fa-caret-down"></i></div>
+        <div class="panel">
+            {{#each css_paths as |path|}}
+            <a href="{{path_to_root ../depth}}{{path}}" target="_blank">{{path}}</a>
+            {{/each}}
+            <hr>
+            {{#each js_paths as |path|}}
+            <a href="{{path_to_root ../depth}}{{path}}" target="_blank">{{path}}</a>
+            {{/each}}
+        </div>
+    </div>
+</div>
