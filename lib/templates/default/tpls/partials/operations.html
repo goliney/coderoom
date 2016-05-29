@@ -34,21 +34,24 @@
     <!-- /js -->
     <!-- /choose file to show -->
 
-    <!-- room media-->
-    <div class="dropdown right">
+    <!-- room resources -->
+    <div class="dropdown right {{#unless hasCSS}}{{#unless hasJS}}disabled{{/unless}}{{/unless}}">
         <div class="head">Resources <i class="fa fa-caret-down"></i></div>
         <div class="panel">
             {{#each css_paths as |path|}}
             <a href="{{path_to_root ../depth}}{{path}}" target="_blank">{{path}}</a>
             {{/each}}
-            <hr>
+            {{#if hasJS}}<hr />{{/if}}
             {{#each js_paths as |path|}}
             <a href="{{path_to_root ../depth}}{{path}}" target="_blank">{{path}}</a>
             {{/each}}
         </div>
     </div>
+    <!-- /room resources -->
 
+    <!-- open iframe in a new tab -->
     <a href="./iframe.html" class="operation right" target="_blank" title="Open result in a new tab">
         <i class="fa fa-external-link"></i>
     </a>
+    <!-- /open iframe in a new tab -->
 </div>
