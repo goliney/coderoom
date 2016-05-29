@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "main": "./lib/coderoom",
   "bin": {
-    "coderoom": "./bin/coderoom"
+    "coderoom": "./bin/coderoom.js"
   },
   "repository": {
     "type": "git",
