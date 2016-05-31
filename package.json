@@ -31,6 +31,7 @@
     "chai": "^3.5.0",
     "commitizen": "^2.8.1",
     "cz-conventional-changelog": "^1.1.6",
+    "ghooks": "^1.2.1",
     "gulp": "^3.9.1",
     "gulp-jshint": "^2.0.0",
     "gulp-shell": "^0.5.2",
@@ -42,7 +43,10 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+      "path": "node_modules/cz-conventional-changelog",
+      "ghooks": {
+        "pre-commit": "npm run test"
+      }
     }
   }
 }
