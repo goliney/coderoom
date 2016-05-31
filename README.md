@@ -1,4 +1,4 @@
-# Coderoom
+# Coderoom [![Build Status](https://travis-ci.org/goliney/coderoom.svg?branch=master)](https://travis-ci.org/goliney/coderoom)
 ![Screenshot](./screenshot.jpg?raw=true "Coderoom")
 
 
