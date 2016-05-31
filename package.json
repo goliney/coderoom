@@ -7,10 +7,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/goliney/coderoom.git"
+    "url": "https://github.com/goliney/coderoom.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "commit": "git-cz",
+    "test": "mocha ./test/room.class.spec.js -w",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "description": "Code snippets preview generator",
   "author": "Sergey Goliney <sergey@goliney.com> (http://goliney.com)",
@@ -26,11 +28,21 @@
     "normalize-path": "^2.0.1"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "commitizen": "^2.8.1",
+    "cz-conventional-changelog": "^1.1.6",
     "gulp": "^3.9.1",
     "gulp-jshint": "^2.0.0",
     "gulp-shell": "^0.5.2",
     "jshint": "^2.9.2",
     "jshint-stylish": "^2.1.0",
-    "run-sequence": "^1.1.5"
+    "mocha": "^2.5.3",
+    "run-sequence": "^1.1.5",
+    "semantic-release": "^4.3.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
   }
 }
