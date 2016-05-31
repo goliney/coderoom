@@ -1,10 +1,11 @@
 #IDE
 .idea
 
-# Logs
+# Logs and coverage
 logs
 *.log
 npm-debug.log*
+coverage
 
 # Dependency directories
 node_modules
