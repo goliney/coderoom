@@ -1,5 +1,5 @@
 # Coderoom [![Build Status](https://travis-ci.org/goliney/coderoom.svg?branch=master)](https://travis-ci.org/goliney/coderoom)
-![Screenshot](./screenshot.jpg?raw=true "Coderoom")
+![Screenshot](./screenshot.jpg?raw=true "Coderoom") [![codecov](https://codecov.io/gh/goliney/coderoom/branch/master/graph/badge.svg)](https://codecov.io/gh/goliney/coderoom)
 
 
 ## About
