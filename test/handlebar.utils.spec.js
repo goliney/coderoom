@@ -1,58 +1,44 @@
 "use strict";
 
 var expect = require('chai').expect;
-const mock = require('mock-fs');
 
-const utils = require('../lib/utils.js');
+const handlebars = require('handlebars');
+require('../lib/handlebars.utils.js')(handlebars);
 
-describe('Utils', function () {
-    describe('normalizeName', function () {
-        it('should remove prefix', function () {
-            var initial = '123__foo_bar.html';
-            expect(utils.normalizeName(initial)).to.equal('foo_bar.html');
-        });
-
-        it('should remove only first prefix', function () {
-            var initial = '123__foo__bar.html';
-            expect(utils.normalizeName(initial)).to.equal('foo__bar.html');
-        });
-
-        it('should not touch string without prefix', function () {
-            var initial = 'foo_bar.html';
-            expect(utils.normalizeName(initial)).to.equal('foo_bar.html');
-        });
-    });
-
-    describe('readTemplate', function () {
+describe('Handlebar utils', function () {
+    describe('path_to_root', function () {
         before(function () {
-            mock({
-                'lib/templates/default/tpls': {
-                    'A.html': 'AAA',
-                    'some': {
-                        'deep': {
-                            'path': {
-                                'B.html': 'BBB'
-                            }
-                        }
-                    }
-                }
-            });
+            this.html = '{{path_to_root depth}}';
+        });
+        
+        it('should return ../ depth-times', function () {
+            var template =  handlebars.compile(this.html);
+            var context = {depth: 3};
+            var result = template(context);
+            expect(result).to.be.equal('../../');
         });
 
-        after(function () {
-            mock.restore();
-        });
-
-        it('should read file', function () {
-            var content = utils.readTemplate('A.html');
-            expect(content).to.equal('AAA');
-        });
-
-        it('should resolve path', function () {
-            var content = utils.readTemplate('some', 'deep', 'path', 'B.html');
-            expect(content).to.equal('BBB');
+        it('should return ./ if depth is zero', function () {
+            var template =  handlebars.compile(this.html);
+            var context = {depth: 0};
+            var result = template(context);
+            expect(result).to.be.equal('./');
         });
     });
+
+    describe('path_join', function () {
+        it('should join arguments by slashes', function () {
+            var template =  handlebars.compile('{{path_join "root" path1 path2 path3}}');
+            var context = {
+                path1: 'A',
+                path2: 'B',
+                path3: 'C'
+            };
+            var result = template(context);
+            expect(result).to.be.equal('root/A/B/C');
+        });
+    });
+
 });
 
 
