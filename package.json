@@ -1,24 +1,23 @@
 {
   "name": "coderoom",
   "version": "0.2.1",
+  "author": "Sergey Goliney <sergey@goliney.com> (http://goliney.com)",
+  "description": "Code snippets preview generator",
+  "keywords": [
+    "coderoom"
+  ],
+  "license": "MIT",
   "main": "./lib/coderoom",
   "bin": {
     "coderoom": "./bin/coderoom.js"
+  },
+  "engines": {
+    "node": ">=5.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/goliney/coderoom.git"
   },
-  "scripts": {
-    "commit": "git-cz",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
-    "test:watch": "mocha ./test/*.spec.js -w",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
-  },
-  "description": "Code snippets preview generator",
-  "author": "Sergey Goliney <sergey@goliney.com> (http://goliney.com)",
-  "license": "MIT",
   "dependencies": {
     "commander": "^2.9.0",
     "common-path-prefix": "^1.0.0",
@@ -45,6 +44,13 @@
     "mock-fs": "^3.9.0",
     "run-sequence": "^1.1.5",
     "semantic-release": "^4.3.5"
+  },
+  "scripts": {
+    "commit": "git-cz",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "test:watch": "mocha ./test/*.spec.js -w",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "config": {
     "commitizen": {
