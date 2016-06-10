@@ -1,8 +1,9 @@
 "use strict";
 
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 const mock = require('mock-fs');
 const path = require('path');
+const testHelpers = require('./testHelpers');
 
 const Room = require('../lib/room.class.js');
 
@@ -70,27 +71,27 @@ describe('Room class', function () {
         });
 
         it('should set title', function () {
-            var room = new Room(pathTo('1__Room1'));
+            var room = new Room('1__Room1');
             expect(room.config.title).to.be.equal('Room1');
 
-            var room = new Room(pathTo('2__Room2'));
+            var room = new Room('2__Room2');
             expect(room.config.title).to.be.equal('from-config');
 
-            var room = new Room(pathTo('Room3'));
+            var room = new Room('Room3');
             expect(room.config.title).to.be.equal('Room3');
 
-            var room = new Room(pathTo('4__FileRoom.html'));
+            var room = new Room('4__FileRoom.html');
             expect(room.config.title).to.be.equal('FileRoom');
         });
 
         it('should extend "files" in case of html was provided as an input', function () {
-            var pathToHtml = pathTo('4__FileRoom.html');
+            var pathToHtml = '4__FileRoom.html';
             var room = new Room(pathToHtml);
             expect(room.files).to.contain(pathToHtml);
         });
 
         it('should not extend "files" in case of not html file was provided as an input', function () {
-            var pathToFile = pathTo('invalid.json');
+            var pathToFile = 'invalid.json';
             var room = new Room(pathToFile);
             expect(room.files).not.to.contain(pathToFile);
         });
@@ -116,7 +117,7 @@ describe('Room class', function () {
 
             it('should extend config with content of JSON file', function () {
                 room.config.someKey = 'some-value';
-                pathToFile = pathTo('2__Room2', 'config.json');
+                pathToFile = '2__Room2/config.json';
                 room.extendConfigFromFile(pathToFile);
                 expect(room.config.title).to.be.equal('from-config');
                 expect(room.config.someKey).to.be.equal('some-value');
@@ -132,7 +133,7 @@ describe('Room class', function () {
                 expect(fn).not.to.throw();
 
                 // file is invalid
-                pathToFile = pathTo('invalid.json');
+                pathToFile = 'invalid.json';
                 expect(fn).to.throw();
             });
         });
@@ -167,8 +168,8 @@ describe('Room class', function () {
             var room6;
 
             beforeEach(function () {
-                room5 = new Room(pathTo('Room5'));
-                room6 = new Room(pathTo('Room6'));
+                room5 = new Room('Room5');
+                room6 = new Room('Room6');
                 room5.pushItem(room6);
             });
 
@@ -181,19 +182,19 @@ describe('Room class', function () {
                 it('should gather media files recursively by default', function () {
                     var media = room5.getMedia();
                     expect(media).to.eql([
-                        pathTo('project', 'styleB.css'),
-                        pathTo('project', 'js', 'scriptA.js'),
-                        pathTo('project', 'js', 'scriptB.js'),
-                        pathTo('project', 'styleA.css')
+                        testHelpers.pathTo('project', 'styleB.css'),
+                        testHelpers.pathTo('project', 'js', 'scriptA.js'),
+                        testHelpers.pathTo('project', 'js', 'scriptB.js'),
+                        testHelpers.pathTo('project', 'styleA.css')
                     ])
                 });
 
                 it('should gather only room\'s media if applied with `false` parameter', function () {
                     var media = room5.getMedia(false);
                     expect(media).to.eql([
-                        pathTo('project', 'styleB.css'),
-                        pathTo('project', 'js', 'scriptA.js'),
-                        pathTo('project', 'js', 'scriptB.js')
+                        testHelpers.pathTo('project', 'styleB.css'),
+                        testHelpers.pathTo('project', 'js', 'scriptA.js'),
+                        testHelpers.pathTo('project', 'js', 'scriptB.js')
                     ])
                 });
             });
@@ -202,19 +203,19 @@ describe('Room class', function () {
                 it('should gather assets recursively by default', function () {
                     var media = room5.getAssets();
                     expect(media).to.eql([
-                        pathTo('project', 'assets', 'imageB.png'),
-                        pathTo('project', 'assets', 'fonts', 'fontA.ttf'),
-                        pathTo('project', 'assets', 'fonts', 'fontB.ttf'),
-                        pathTo('project', 'assets', 'imageA.png')
+                        testHelpers.pathTo('project', 'assets', 'imageB.png'),
+                        testHelpers.pathTo('project', 'assets', 'fonts', 'fontA.ttf'),
+                        testHelpers.pathTo('project', 'assets', 'fonts', 'fontB.ttf'),
+                        testHelpers.pathTo('project', 'assets', 'imageA.png')
                     ])
                 });
 
                 it('should gather only room\'s assets if applied with `false` parameter', function () {
                     var media = room5.getAssets(false);
                     expect(media).to.eql([
-                        pathTo('project', 'assets', 'imageB.png'),
-                        pathTo('project', 'assets', 'fonts', 'fontA.ttf'),
-                        pathTo('project', 'assets', 'fonts', 'fontB.ttf')
+                        testHelpers.pathTo('project', 'assets', 'imageB.png'),
+                        testHelpers.pathTo('project', 'assets', 'fonts', 'fontA.ttf'),
+                        testHelpers.pathTo('project', 'assets', 'fonts', 'fontB.ttf')
                     ])
                 });
             });
@@ -235,7 +236,7 @@ describe('Room class', function () {
         describe('hasFiles', function () {
             it('should check if room has files', function () {
                 expect(room.hasFiles).to.be.false;
-                room.addFiles(pathTo('someFile.txt'));
+                room.addFiles('someFile.txt');
                 expect(room.hasFiles).to.be.true;
             });
         });
@@ -243,7 +244,7 @@ describe('Room class', function () {
         describe('hasHTML', function () {
             it('should check if room has html files', function () {
                 expect(room.hasHTML).to.be.false;
-                room.addFiles(pathTo('someHtml.html'));
+                room.addFiles('someHtml.html');
                 expect(room.hasHTML).to.be.true;
             });
         });
@@ -251,7 +252,7 @@ describe('Room class', function () {
         describe('hasCSS', function () {
             it('should check if room has css files', function () {
                 expect(room.hasCSS).to.be.false;
-                room.addFiles(pathTo('someCss.css'));
+                room.addFiles('someCss.css');
                 expect(room.hasCSS).to.be.true;
             });
         });
@@ -259,7 +260,7 @@ describe('Room class', function () {
         describe('hasJS', function () {
             it('should check if room has js files', function () {
                 expect(room.hasJS).to.be.false;
-                room.addFiles(pathTo('someJs.js'));
+                room.addFiles('someJs.js');
                 expect(room.hasJS).to.be.true;
             });
         });
@@ -267,9 +268,9 @@ describe('Room class', function () {
         describe('which return parsed files', function () {
             beforeEach(function () {
                 room.addFiles([
-                    pathTo('someHtml.html'),
-                    pathTo('someCss.css'),
-                    pathTo('someJs.js')
+                    'someHtml.html',
+                    'someCss.css',
+                    'someJs.js'
                 ]);
             });
 
@@ -316,7 +317,3 @@ describe('Room class', function () {
     });
 
 });
-
-function pathTo() {
-    return path.resolve.apply(null, [process.cwd(), ...arguments]);
-}

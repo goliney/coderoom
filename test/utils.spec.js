@@ -1,6 +1,6 @@
 "use strict";
 
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 const mock = require('mock-fs');
 
 const utils = require('../lib/utils.js');

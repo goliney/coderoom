@@ -1,8 +1,8 @@
 "use strict";
 
-var expect = require('chai').expect;
-
+const expect = require('chai').expect;
 const handlebars = require('handlebars');
+
 require('../lib/handlebars.utils.js')(handlebars);
 
 describe('Handlebar utils', function () {

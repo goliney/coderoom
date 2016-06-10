@@ -1,6 +1,6 @@
 "use strict";
 
-var expect = require('chai').expect;
+const expect = require('chai').expect;
 
 const settings = require('../lib/settings');
 
