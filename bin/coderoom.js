@@ -4,11 +4,9 @@
 const coderoom = require('../lib/coderoom');
 const program = require('commander');
 const path = require('path');
-const version = require('../package').version;
 
 program
     .arguments('<source_dir> [target_dir]')
-    .version(version)
     .action(function (source_dir, target_dir) {
         source_dir = path.resolve(source_dir);
         target_dir = target_dir ?
