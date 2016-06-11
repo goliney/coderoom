@@ -11,7 +11,7 @@ to share with your team or customers. With coderoom you can easily gather these 
 thanks to coderoom, you can monitor how changes in project influence it's specific parts that you have allocated.
 
 ## Demo
-http://goliney.github.io/coderoom/
+- [Coderoom for Bootstrap](http://goliney.github.io/coderoom-demo-bootstrap/)
 
 ## Features
 - works offline
@@ -19,7 +19,7 @@ http://goliney.github.io/coderoom/
 - uses folder structure to arrange things
 - resource nesting (child "room" inherits configuration of it's parent)
 
-## Install
+## Installation
 ```sh
 npm install -g coderoom
 ```
