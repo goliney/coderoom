@@ -1,6 +1,6 @@
 {
   "name": "coderoom",
-  "version": "0.2.1",
+  "version": "0.0.0-semantically-released",
   "author": "Sergey Goliney <sergey@goliney.com> (http://goliney.com)",
   "description": "Code snippets preview generator",
   "keywords": [
