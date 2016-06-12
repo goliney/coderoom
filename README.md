@@ -88,3 +88,7 @@ Example:
 If you want to include to preview more than just html, you have to create a folder with `index.html` in it. If you
 place any css or javascript files into that folder, they will become a part of a "room", and you will be able to
 switch among them on live presentation.
+
+## Automation
+- [grunt-coderoom](https://github.com/goliney/grunt-coderoom)
+- gulp-coderoom (TODO)
