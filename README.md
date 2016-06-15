@@ -91,4 +91,3 @@ switch among them on live presentation.
 
 ## Automation
 - [grunt-coderoom](https://github.com/goliney/grunt-coderoom)
-- gulp-coderoom (TODO)
