@@ -21,13 +21,20 @@ thanks to coderoom, you can monitor how changes in project influence it's specif
 
 ## Installation
 ```sh
-npm install -g coderoom
+npm install coderoom -g
 ```
 
 ## Usage
 To generate coderoom you have to prepare a folder with at least one html file. Then run a command:
 ```sh
 coderoom source/ target/
+```
+
+If you use coderoom as a dependency:
+
+```javascript
+const coderoom = require('coderoom');
+coderoom.build('source/', 'target/');
 ```
 
 Now `target` folder contains `index.html`. Open it in browser to see your built `coderoom`.
