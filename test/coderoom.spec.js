@@ -4,7 +4,6 @@ const expect = require('chai').expect;
 const mock = require('mock-fs');
 const path = require('path');
 const fs = require('fs-extra');
-const testHelpers = require('./testHelpers');
 
 const coderoom = require('../lib/coderoom');
 

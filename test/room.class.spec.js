@@ -2,8 +2,8 @@
 
 const expect = require('chai').expect;
 const mock = require('mock-fs');
+const fs = require('fs-extra');
 const path = require('path');
-const testHelpers = require('./testHelpers');
 
 const Room = require('../lib/room.class.js');
 
@@ -42,18 +42,18 @@ describe('Room class', function () {
                 }`
             },
             'project': {
-                'styleA.css': '',
-                'styleB.css': '',
+                'styleA.css': 'styleA.css',
+                'styleB.css': 'styleB.css',
                 'js': {
-                    'scriptB.js': '',
-                    'scriptA.js': ''
+                    'scriptB.js': 'scriptB.js',
+                    'scriptA.js': 'scriptA.js'
                 },
                 'assets': {
-                    'imageA.png': '',
-                    'imageB.png': '',
+                    'imageA.png': 'imageA.png',
+                    'imageB.png': 'imageB.png',
                     'fonts': {
-                        'fontB.ttf': '',
-                        'fontA.ttf': ''
+                        'fontB.ttf': 'fontB.ttf',
+                        'fontA.ttf': 'fontA.ttf'
                     }
                 }
             }
@@ -181,20 +181,20 @@ describe('Room class', function () {
             describe('getMedia', function () {
                 it('should gather media files recursively by default', function () {
                     var media = room5.getMedia();
-                    expect(media).to.eql([
-                        testHelpers.pathTo('project', 'styleB.css'),
-                        testHelpers.pathTo('project', 'js', 'scriptA.js'),
-                        testHelpers.pathTo('project', 'js', 'scriptB.js'),
-                        testHelpers.pathTo('project', 'styleA.css')
+                    expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
+                        'styleB.css',
+                        'scriptA.js',
+                        'scriptB.js',
+                        'styleA.css'
                     ])
                 });
 
                 it('should gather only room\'s media if applied with `false` parameter', function () {
                     var media = room5.getMedia(false);
-                    expect(media).to.eql([
-                        testHelpers.pathTo('project', 'styleB.css'),
-                        testHelpers.pathTo('project', 'js', 'scriptA.js'),
-                        testHelpers.pathTo('project', 'js', 'scriptB.js')
+                    expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
+                        'styleB.css',
+                        'scriptA.js',
+                        'scriptB.js'
                     ])
                 });
             });
@@ -202,20 +202,20 @@ describe('Room class', function () {
             describe('getAssets', function () {
                 it('should gather assets recursively by default', function () {
                     var media = room5.getAssets();
-                    expect(media).to.eql([
-                        testHelpers.pathTo('project', 'assets', 'imageB.png'),
-                        testHelpers.pathTo('project', 'assets', 'fonts', 'fontA.ttf'),
-                        testHelpers.pathTo('project', 'assets', 'fonts', 'fontB.ttf'),
-                        testHelpers.pathTo('project', 'assets', 'imageA.png')
+                    expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
+                        'imageB.png',
+                        'fontA.ttf',
+                        'fontB.ttf',
+                        'imageA.png'
                     ])
                 });
 
                 it('should gather only room\'s assets if applied with `false` parameter', function () {
                     var media = room5.getAssets(false);
-                    expect(media).to.eql([
-                        testHelpers.pathTo('project', 'assets', 'imageB.png'),
-                        testHelpers.pathTo('project', 'assets', 'fonts', 'fontA.ttf'),
-                        testHelpers.pathTo('project', 'assets', 'fonts', 'fontB.ttf')
+                    expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
+                        'imageB.png',
+                        'fontA.ttf',
+                        'fontB.ttf'
                     ])
                 });
             });
