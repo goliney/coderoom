@@ -4,7 +4,6 @@ const expect = require('chai').expect;
 const mock = require('mock-fs');
 const path = require('path');
 const fs = require('fs-extra');
-const testHelpers = require('./testHelpers');
 
 const coderoom = require('../lib/coderoom');
 
@@ -32,16 +31,19 @@ describe('Coderoom', function () {
                 'css': {
                     'A.css': '',
                     'B.css': '',
+                    'C.css': '',
                     'shared.css': ''
                 },
                 'js': {
                     'A.js': '',
                     'B.js': '',
+                    'C.js': '',
                     'shared.js': ''
                 },
                 'img': {
                     'A.png': '',
                     'B.png': '',
+                    'C.png': '',
                     'logo.png': ''
                 }
             },
@@ -62,7 +64,16 @@ describe('Coderoom', function () {
                             'config.json': `{
                                 "media": ["./myProject/js/B*", "./myProject/css/B*"],
                                 "assets": "./myProject/img/B*"
-                            }`
+                            }`,
+                            'C_Room': {
+                                'index.html': '',
+                                'app.js': '',
+                                'config.json': `{
+                                    "title": "C",
+                                    "media": ["./myProject/js/C*", "./myProject/css/C*"],
+                                    "assets": "./myProject/img/C*"
+                                }`
+                            }
                         }
                     },
                     'config.json': `{
@@ -136,11 +147,19 @@ describe('Coderoom', function () {
         expect(iframeA).to.contain('shared.js');
         expect(iframeA).to.contain('A.js');
         expect(iframeA).not.to.contain('B.js');
+        expect(iframeA).not.to.contain('C.js');
 
         var iframeB = fs.readFileSync('target/tpls/0/1/0/iframe.html', 'utf8');
         expect(iframeB).to.contain('shared.js');
         expect(iframeB).to.contain('A.js');
         expect(iframeB).to.contain('B.js');
+        expect(iframeB).not.to.contain('C.js');
+
+        var iframeC = fs.readFileSync('target/tpls/0/1/1/iframe.html', 'utf8');
+        expect(iframeC).to.contain('shared.js');
+        expect(iframeC).to.contain('A.js');
+        expect(iframeC).to.contain('B.js');
+        expect(iframeC).to.contain('C.js');
     });
 
     it('should ignore rooms without html', function () {
