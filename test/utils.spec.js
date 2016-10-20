@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 const expect = require('chai').expect;
 const mock = require('mock-fs');
@@ -8,17 +8,17 @@ const utils = require('../lib/utils.js');
 describe('Utils', function () {
     describe('normalizeName', function () {
         it('should remove prefix', function () {
-            var initial = '123__foo_bar.html';
+            let initial = '123__foo_bar.html';
             expect(utils.normalizeName(initial)).to.equal('foo_bar.html');
         });
 
         it('should remove only first prefix', function () {
-            var initial = '123__foo__bar.html';
+            let initial = '123__foo__bar.html';
             expect(utils.normalizeName(initial)).to.equal('foo__bar.html');
         });
 
         it('should not touch string without prefix', function () {
-            var initial = 'foo_bar.html';
+            let initial = 'foo_bar.html';
             expect(utils.normalizeName(initial)).to.equal('foo_bar.html');
         });
     });
@@ -44,12 +44,12 @@ describe('Utils', function () {
         });
 
         it('should read file', function () {
-            var content = utils.readTemplate('A.html');
+            let content = utils.readTemplate('A.html');
             expect(content).to.equal('AAA');
         });
 
         it('should resolve path', function () {
-            var content = utils.readTemplate('some', 'deep', 'path', 'B.html');
+            let content = utils.readTemplate('some', 'deep', 'path', 'B.html');
             expect(content).to.equal('BBB');
         });
     });

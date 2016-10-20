@@ -1,9 +1,8 @@
-"use strict";
+'use strict';
 
 const expect = require('chai').expect;
 const mock = require('mock-fs');
 const fs = require('fs-extra');
-const path = require('path');
 
 const Room = require('../lib/room.class.js');
 
@@ -66,39 +65,39 @@ describe('Room class', function () {
 
     describe('initialization', function () {
         it('should return immediately if no source provided', function () {
-            var room = new Room();
+            let room = new Room();
             expect(room.config).to.be.undefined;
         });
 
         it('should set title', function () {
-            var room = new Room('1__Room1');
-            expect(room.config.title).to.be.equal('Room1');
+            let room1 = new Room('1__Room1');
+            expect(room1.config.title).to.be.equal('Room1');
 
-            var room = new Room('2__Room2');
-            expect(room.config.title).to.be.equal('from-config');
+            let room2 = new Room('2__Room2');
+            expect(room2.config.title).to.be.equal('from-config');
 
-            var room = new Room('Room3');
-            expect(room.config.title).to.be.equal('Room3');
+            let room3 = new Room('Room3');
+            expect(room3.config.title).to.be.equal('Room3');
 
-            var room = new Room('4__FileRoom.html');
-            expect(room.config.title).to.be.equal('FileRoom');
+            let room4 = new Room('4__FileRoom.html');
+            expect(room4.config.title).to.be.equal('FileRoom');
         });
 
         it('should extend "files" in case of html was provided as an input', function () {
-            var pathToHtml = '4__FileRoom.html';
-            var room = new Room(pathToHtml);
+            let pathToHtml = '4__FileRoom.html';
+            let room = new Room(pathToHtml);
             expect(room.files).to.contain(pathToHtml);
         });
 
         it('should not extend "files" in case of not html file was provided as an input', function () {
-            var pathToFile = 'invalid.json';
-            var room = new Room(pathToFile);
+            let pathToFile = 'invalid.json';
+            let room = new Room(pathToFile);
             expect(room.files).not.to.contain(pathToFile);
         });
     });
 
     describe('method', function () {
-        var room;
+        let room;
 
         beforeEach(function () {
             room = new Room('1__Room1');
@@ -109,7 +108,7 @@ describe('Room class', function () {
         });
 
         describe('extendConfigFromFile', function () {
-            var pathToFile;
+            let pathToFile;
 
             after(function () {
                 pathToFile = null;
@@ -124,7 +123,7 @@ describe('Room class', function () {
             });
 
             it('should not throw error if file doesn\'t exist', function () {
-                var fn = function () {
+                let fn = function () {
                     room.extendConfigFromFile(pathToFile);
                 };
 
@@ -141,7 +140,7 @@ describe('Room class', function () {
         describe('pushItem', function () {
             it('should push to items', function () {
                 expect(room.items).to.be.empty;
-                var obj = {};
+                let obj = {};
                 room.pushItem(obj);
                 expect(room.items).to.contain(obj);
             });
@@ -149,8 +148,8 @@ describe('Room class', function () {
 
         describe('addFiles', function () {
             it('should take string or array and push unique to files', function () {
-                var pathToFileA = 'path/to/file/A.css';
-                var pathToFileB = 'path/to/file/B.css';
+                let pathToFileA = 'path/to/file/A.css';
+                let pathToFileB = 'path/to/file/B.css';
                 expect(room.files).to.be.empty;
                 // add string
                 room.addFiles(pathToFileA);
@@ -164,8 +163,8 @@ describe('Room class', function () {
         });
 
         describe('which parses resources', function () {
-            var room5;
-            var room6;
+            let room5;
+            let room6;
 
             beforeEach(function () {
                 room5 = new Room('Room5');
@@ -180,50 +179,50 @@ describe('Room class', function () {
 
             describe('getMedia', function () {
                 it('should gather media files recursively by default', function () {
-                    var media = room5.getMedia();
+                    let media = room5.getMedia();
                     expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
                         'styleB.css',
                         'scriptA.js',
                         'scriptB.js',
                         'styleA.css'
-                    ])
+                    ]);
                 });
 
                 it('should gather only room\'s media if applied with `false` parameter', function () {
-                    var media = room5.getMedia(false);
+                    let media = room5.getMedia(false);
                     expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
                         'styleB.css',
                         'scriptA.js',
                         'scriptB.js'
-                    ])
+                    ]);
                 });
             });
 
             describe('getAssets', function () {
                 it('should gather assets recursively by default', function () {
-                    var media = room5.getAssets();
+                    let media = room5.getAssets();
                     expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
                         'imageB.png',
                         'fontA.ttf',
                         'fontB.ttf',
                         'imageA.png'
-                    ])
+                    ]);
                 });
 
                 it('should gather only room\'s assets if applied with `false` parameter', function () {
-                    var media = room5.getAssets(false);
+                    let media = room5.getAssets(false);
                     expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
                         'imageB.png',
                         'fontA.ttf',
                         'fontB.ttf'
-                    ])
+                    ]);
                 });
             });
         });
     });
 
     describe('getter', function () {
-        var room;
+        let room;
 
         beforeEach(function () {
             room = new Room('1__Room1');
@@ -277,7 +276,7 @@ describe('Room class', function () {
             describe('parsedFiles', function () {
                 it('should return all parsed files', function () {
                     room.parsedFiles.forEach(parsedFile => {
-                        expect(parsedFile).to.have.all.keys('file', 'parse', 'active', 'normalized', 'title')
+                        expect(parsedFile).to.have.all.keys('file', 'parse', 'active', 'normalized', 'title');
                     });
                     expect(room.parsedFiles).to.have.lengthOf(3);
                 });
@@ -286,7 +285,7 @@ describe('Room class', function () {
             describe('parsedHTMLFiles', function () {
                 it('should return all parsed html files', function () {
                     room.parsedHTMLFiles.forEach(parsedFile => {
-                        expect(parsedFile).to.have.all.keys('file', 'parse', 'active', 'normalized', 'title')
+                        expect(parsedFile).to.have.all.keys('file', 'parse', 'active', 'normalized', 'title');
                     });
                     expect(room.parsedHTMLFiles).to.have.lengthOf(1);
                     expect(room.parsedHTMLFiles[0].parse.ext).to.be.equal('.html');
@@ -296,7 +295,7 @@ describe('Room class', function () {
             describe('parsedCSSFiles', function () {
                 it('should return all parsed html files', function () {
                     room.parsedCSSFiles.forEach(parsedFile => {
-                        expect(parsedFile).to.have.all.keys('file', 'parse', 'active', 'normalized', 'title')
+                        expect(parsedFile).to.have.all.keys('file', 'parse', 'active', 'normalized', 'title');
                     });
                     expect(room.parsedCSSFiles).to.have.lengthOf(1);
                     expect(room.parsedCSSFiles[0].parse.ext).to.be.equal('.css');
@@ -306,7 +305,7 @@ describe('Room class', function () {
             describe('parsedJSFiles', function () {
                 it('should return all parsed html files', function () {
                     room.parsedJSFiles.forEach(parsedFile => {
-                        expect(parsedFile).to.have.all.keys('file', 'parse', 'active', 'normalized', 'title')
+                        expect(parsedFile).to.have.all.keys('file', 'parse', 'active', 'normalized', 'title');
                     });
                     expect(room.parsedJSFiles).to.have.lengthOf(1);
                     expect(room.parsedJSFiles[0].parse.ext).to.be.equal('.js');

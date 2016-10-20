@@ -1,0 +1,5 @@
+# /node_modules/* ignored by default
+
+# ignore ng-admin source
+/lib/templates/default/static/js/vendor/
+/coverage/
