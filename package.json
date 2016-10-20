@@ -21,6 +21,7 @@
   "dependencies": {
     "commander": "^2.9.0",
     "common-path-prefix": "^1.0.0",
+    "eslint": "^3.8.1",
     "fs-extra": "^0.26.7",
     "glob": "^7.0.5",
     "handlebars": "^4.0.5",
@@ -44,14 +45,15 @@
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
     "test:watch": "mocha ./test/*.spec.js -w",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "eslint": "node node_modules/eslint/bin/eslint.js */*"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     },
     "ghooks": {
-      "pre-commit": "npm run test"
+      "pre-commit": "npm run eslint; npm run test"
     }
   }
 }

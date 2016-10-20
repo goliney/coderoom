@@ -1,8 +1,7 @@
-"use strict";
+'use strict';
 
 const expect = require('chai').expect;
 const mock = require('mock-fs');
-const path = require('path');
 const fs = require('fs-extra');
 
 const coderoom = require('../lib/coderoom');
@@ -113,49 +112,49 @@ describe('Coderoom', function () {
     it('should create simple presentation', function () {
         coderoom.build('./source/SingleFile', './target');
 
-        var targetDir = fs.readdirSync('target');
+        let targetDir = fs.readdirSync('target');
         expect(targetDir).to.contain('index.html');
 
-        var roomDir = fs.readdirSync('target/tpls/0');
+        let roomDir = fs.readdirSync('target/tpls/0');
         expect(roomDir).to.contain.members(['iframe.html', 'index.html']);
     });
 
     it('should copy static', function () {
         coderoom.build('./source/SingleFile', './target');
 
-        var cssDir = fs.readdirSync('target/static/css');
+        let cssDir = fs.readdirSync('target/static/css');
         expect(cssDir).to.contain('base.css');
     });
 
     it('should copy resources', function () {
         coderoom.build('./source/WithResources', './target');
 
-        var jsDir = fs.readdirSync('target/media/js');
+        let jsDir = fs.readdirSync('target/media/js');
         expect(jsDir).to.contain.members(['A.js', 'B.js', 'shared.js']);
 
-        var cssDir = fs.readdirSync('target/media/css');
+        let cssDir = fs.readdirSync('target/media/css');
         expect(cssDir).to.contain.members(['A.css', 'B.css', 'shared.css']);
 
-        var imgDir = fs.readdirSync('target/media/img');
+        let imgDir = fs.readdirSync('target/media/img');
         expect(imgDir).to.contain.members(['A.png', 'B.png', 'logo.png']);
     });
 
     it('should inherit media', function () {
         coderoom.build('./source/WithResources', './target');
 
-        var iframeA = fs.readFileSync('target/tpls/0/0/iframe.html', 'utf8');
+        let iframeA = fs.readFileSync('target/tpls/0/0/iframe.html', 'utf8');
         expect(iframeA).to.contain('shared.js');
         expect(iframeA).to.contain('A.js');
         expect(iframeA).not.to.contain('B.js');
         expect(iframeA).not.to.contain('C.js');
 
-        var iframeB = fs.readFileSync('target/tpls/0/1/0/iframe.html', 'utf8');
+        let iframeB = fs.readFileSync('target/tpls/0/1/0/iframe.html', 'utf8');
         expect(iframeB).to.contain('shared.js');
         expect(iframeB).to.contain('A.js');
         expect(iframeB).to.contain('B.js');
         expect(iframeB).not.to.contain('C.js');
 
-        var iframeC = fs.readFileSync('target/tpls/0/1/1/iframe.html', 'utf8');
+        let iframeC = fs.readFileSync('target/tpls/0/1/1/iframe.html', 'utf8');
         expect(iframeC).to.contain('shared.js');
         expect(iframeC).to.contain('A.js');
         expect(iframeC).to.contain('B.js');
@@ -165,14 +164,14 @@ describe('Coderoom', function () {
     it('should ignore rooms without html', function () {
         coderoom.build('./source/WithoutHtml', './target');
 
-        var targetDir = fs.readdirSync('target');
+        let targetDir = fs.readdirSync('target');
         expect(targetDir).not.to.contain('tpls');
     });
 
     it('should group rooms', function () {
         coderoom.build('./source/Groups', './target');
 
-        var tplsDir = fs.readdirSync('target/tpls');
+        let tplsDir = fs.readdirSync('target/tpls');
         expect(tplsDir).to.contain.members(['0', '1', '2']);
         expect(tplsDir).not.to.contain('3');
 
