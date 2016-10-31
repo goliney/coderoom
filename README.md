@@ -11,7 +11,8 @@ to share with your team or customers. With coderoom you can easily gather these 
 thanks to coderoom, you can monitor how changes in project influence it's specific parts that you have allocated.
 
 ## Demo
-- [Coderoom for Bootstrap](http://goliney.github.io/coderoom-demo-bootstrap/) ([source](https://github.com/goliney/coderoom-demo-bootstrap))
+- [UI Bootstrap Demo (set of AngularJS directives)](http://goliney.github.io/coderoom-demo-ui-bootstrap/) ([source](https://github.com/goliney/coderoom-demo-ui-bootstrap))
+- [Bootstrap CSS](http://goliney.github.io/coderoom-demo-bootstrap/) ([source](https://github.com/goliney/coderoom-demo-bootstrap))
 
 ## Features
 - works offline
