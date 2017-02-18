@@ -1,6 +1,10 @@
 #IDE
 .idea
 
+#Build
+dist
+example/build
+
 # Logs and coverage
 logs
 *.log
