@@ -31,11 +31,11 @@ describe('Utils', function () {
                     'some': {
                         'deep': {
                             'path': {
-                                'B.html': 'BBB'
-                            }
-                        }
-                    }
-                }
+                                'B.html': 'BBB',
+                            },
+                        },
+                    },
+                },
             });
         });
 

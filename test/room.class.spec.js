@@ -12,7 +12,7 @@ describe('Room class', function () {
             // for initialization and stuff
             '1__Room1': {},
             '2__Room2': {
-                'config.json': '{"title": "from-config"}'
+                'config.json': '{"title": "from-config"}',
             },
             'Room3': {},
             '4__FileRoom.html': 'AAA',
@@ -29,7 +29,7 @@ describe('Room class', function () {
                         "./project/assets/*B.png",
                         "./project/assets/**/*.ttf"
                     ]
-                }`
+                }`,
             },
             'Room6': {
                 'config.json': `{
@@ -38,24 +38,24 @@ describe('Room class', function () {
                         "./project/js/scriptA.js"
                     ],
                     "assets": "./project/assets/**/*"
-                }`
+                }`,
             },
             'project': {
                 'styleA.css': 'styleA.css',
                 'styleB.css': 'styleB.css',
                 'js': {
                     'scriptB.js': 'scriptB.js',
-                    'scriptA.js': 'scriptA.js'
+                    'scriptA.js': 'scriptA.js',
                 },
                 'assets': {
                     'imageA.png': 'imageA.png',
                     'imageB.png': 'imageB.png',
                     'fonts': {
                         'fontB.ttf': 'fontB.ttf',
-                        'fontA.ttf': 'fontA.ttf'
-                    }
-                }
-            }
+                        'fontA.ttf': 'fontA.ttf',
+                    },
+                },
+            },
         });
     });
 
@@ -184,7 +184,7 @@ describe('Room class', function () {
                         'styleB.css',
                         'scriptA.js',
                         'scriptB.js',
-                        'styleA.css'
+                        'styleA.css',
                     ]);
                 });
 
@@ -193,7 +193,7 @@ describe('Room class', function () {
                     expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
                         'styleB.css',
                         'scriptA.js',
-                        'scriptB.js'
+                        'scriptB.js',
                     ]);
                 });
             });
@@ -205,7 +205,7 @@ describe('Room class', function () {
                         'imageB.png',
                         'fontA.ttf',
                         'fontB.ttf',
-                        'imageA.png'
+                        'imageA.png',
                     ]);
                 });
 
@@ -214,7 +214,7 @@ describe('Room class', function () {
                     expect(media.map(item => fs.readFileSync(item, 'utf8'))).to.eql([
                         'imageB.png',
                         'fontA.ttf',
-                        'fontB.ttf'
+                        'fontB.ttf',
                     ]);
                 });
             });
@@ -269,7 +269,7 @@ describe('Room class', function () {
                 room.addFiles([
                     'someHtml.html',
                     'someCss.css',
-                    'someJs.js'
+                    'someJs.js',
                 ]);
             });
 

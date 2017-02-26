@@ -31,25 +31,25 @@ describe('Coderoom', function () {
                     'A.css': '',
                     'B.css': '',
                     'C.css': '',
-                    'shared.css': ''
+                    'shared.css': '',
                 },
                 'js': {
                     'A.js': '',
                     'B.js': '',
                     'C.js': '',
-                    'shared.js': ''
+                    'shared.js': '',
                 },
                 'img': {
                     'A.png': '',
                     'B.png': '',
                     'C.png': '',
-                    'logo.png': ''
-                }
+                    'logo.png': '',
+                },
             },
             // input
             'source': {
                 'SingleFile': {
-                    'File.html': 'simple-file'
+                    'File.html': 'simple-file',
                 },
                 'WithResources': {
                     'Parent': {
@@ -71,37 +71,37 @@ describe('Coderoom', function () {
                                     "title": "C",
                                     "media": ["./myProject/js/C*", "./myProject/css/C*"],
                                     "assets": "./myProject/img/C*"
-                                }`
-                            }
-                        }
+                                }`,
+                            },
+                        },
                     },
                     'config.json': `{
                         "media": ["./myProject/js/shared.js", "./myProject/css/shared.css"],
                         "assets": "./myProject/img/logo.png"
-                    }`
+                    }`,
                 },
                 'WithoutHtml': {
-                    'index.txt': ''
+                    'index.txt': '',
                 },
                 'Groups': {
                     '1__One': {
-                        'index.html': ''
+                        'index.html': '',
                     },
                     '1__Two': {
-                        'index.html': ''
+                        'index.html': '',
                     },
                     '3__Three': {
                         'Five': {
-                            'index.html': ''
+                            'index.html': '',
                         },
                         'Four': {
-                            'index.html': ''
-                        }
-                    }
-                }
+                            'index.html': '',
+                        },
+                    },
+                },
             },
             // output
-            'target': {}
+            'target': {},
         });
     });
 
