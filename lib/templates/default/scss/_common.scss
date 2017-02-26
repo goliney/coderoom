@@ -4,6 +4,33 @@ body {
   font-size: $body_font_size;
 }
 
+button {
+  // reset button styles
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  background: transparent;
+  border: none;
+}
+
+input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 0;
+  -webkit-appearance: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: 1em;
+  height: 1em;
+  vertical-align: middle;
+}
+
 .hidden {
   display: none;
 }

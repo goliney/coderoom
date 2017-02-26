@@ -32,7 +32,7 @@ describe('Handlebar utils', function () {
             let context = {
                 path1: 'A',
                 path2: 'B',
-                path3: 'C'
+                path3: 'C',
             };
             let result = template(context);
             expect(result).to.be.equal('root/A/B/C');

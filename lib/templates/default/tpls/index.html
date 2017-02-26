@@ -17,8 +17,14 @@
             <a href="{{path_to_root depth}}index.html">{{root.config.title}}</a>
         </header>
         <ul id="menu">
+            <li class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" placeholder="Search...">
+                <button type="button" clear class="fa fa-remove" title="Clear search"></button>
+            </li>
             {{> menu with depth=depth items=root.items base='tpls'}}
         </ul>
+        <div no-items-label>No results found.</div>
     </section>
     <!-- /sidebar -->
 
