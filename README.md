@@ -1,6 +1,6 @@
 # Coderoom [![Build Status](https://travis-ci.org/goliney/coderoom.svg?branch=master)](https://travis-ci.org/goliney/coderoom)  [![codecov coverage](https://img.shields.io/codecov/c/github/goliney/coderoom.svg)](https://codecov.io/github/goliney/coderoom)
 
-![Screenshot](./screenshot.jpg?raw=true "Coderoom")
+![Screenshot](./screenshot.png?raw=true "Coderoom")
 
 
 ## About
