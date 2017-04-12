@@ -10,7 +10,16 @@ describe('Room class', function () {
     before(function () {
         mock({
             // for initialization and stuff
-            '1__Room1': {},
+            '1__Room1': {
+                'Nested_Room_1': {
+                    'Nested_Room_2': {
+                        'index.html': '',
+                    },
+                    'Nested_Room_3': {
+                        'index.html': '',
+                    },
+                },
+            },
             '2__Room2': {
                 'config.json': '{"title": "from-config"}',
             },
@@ -162,6 +171,41 @@ describe('Room class', function () {
             });
         });
 
+        describe('getStructure', function () {
+            let structure;
+
+            beforeEach(function () {
+                room = new Room('1__Room1');
+                const nestedRoom1 = new Room('1__Room1/Nested_Room_1');
+                const nestedRoom2 = new Room('1__Room1/Nested_Room_1/Nested_Room_2');
+                const nestedRoom3 = new Room('1__Room1/Nested_Room_1/Nested_Room_3');
+                nestedRoom1.pushItem(nestedRoom2);
+                nestedRoom1.pushItem(nestedRoom3);
+                room.pushItem(nestedRoom1);
+                structure = room.getStructure();
+            });
+
+            afterEach(function () {
+                room = null;
+                structure = null;
+            });
+
+            it('should return room structure as an object', function () {
+                expect(structure).to.be.an('object');
+            });
+
+            it('should contain title and nested items', function () {
+                expect(structure.title).to.equal('Room1');
+                expect(structure.items).to.have.lengthOf(1);
+                expect(structure.items[0].title).to.equal('Nested_Room_1');
+                expect(structure.items[0].items).to.have.lengthOf(2);
+                expect(structure.items[0].items[0].title).to.equal('Nested_Room_2');
+                expect(structure.items[0].items[0].items).to.have.lengthOf(0);
+                expect(structure.items[0].items[1].title).to.equal('Nested_Room_3');
+                expect(structure.items[0].items[1].items).to.have.lengthOf(0);
+            });
+        });
+
         describe('which parses resources', function () {
             let room5;
             let room6;
@@ -309,6 +353,13 @@ describe('Room class', function () {
                     });
                     expect(room.parsedJSFiles).to.have.lengthOf(1);
                     expect(room.parsedJSFiles[0].parse.ext).to.be.equal('.js');
+                });
+            });
+
+            describe('stringifiedStructure', function () {
+                it('should return stringified JSON room structure', function () {
+                    const structure = JSON.parse(room.stringifiedStructure);
+                    expect(structure.title).to.equal('Room1');
                 });
             });
         });

@@ -9,22 +9,50 @@
     <link rel="apple-touch-icon" sizes="152x152" href="{{path_to_root depth}}static/favicons/apple-touch-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="{{path_to_root depth}}static/favicons/apple-touch-icon-180x180.png">
     <link rel="shortcut icon" href="{{path_to_root depth}}static/favicons/favicon.ico">
+
+    <script>
+        var ROOT = {{{root.stringifiedStructure}}};
+        var DEPTH = {{depth}};
+    </script>
+
+    <script type="text/x-template" id="menu-item-tpl">
+        <li>
+            <a v-if="room.items.length === 0" class="link" :class="{active: isActive}" :href="getRoomUrl()">${room.title}</a>
+            <template v-else>
+                <div class="dir-name">${room.title}</div>
+                <ul>
+                    <menu-item v-for="item in room.items" :room="item" :path-to-parent="pathToRoom"></menu-item>
+                </ul>
+            </template>
+        </li>
+    </script>
 </head>
 <body>
     <!-- sidebar -->
-    <section id="sidebar">
+    <section id="sidebar" :class="{mounted: mounted}">
         <header>
             <a href="{{path_to_root depth}}index.html">{{root.config.title}}</a>
         </header>
         <ul id="menu">
-            <li class="search">
+            <li class="search" :class="{active: isSearchFocused || search.length > 0}">
                 <i class="fa fa-search"></i>
-                <input type="text" placeholder="Search...">
-                <button type="button" clear class="fa fa-remove" title="Clear search"></button>
+                <!-- search input -->
+                <input type="text"
+                   placeholder="Search..."
+                   v-model="search"
+                   @focus="isSearchFocused = true"
+                   @blur="isSearchFocused = false"
+                   ref="search" />
+                <!-- clear search button -->
+                <button type="button"
+                    class="fa fa-remove"
+                    title="Clear search"
+                    v-show="search.length > 0"
+                    @click="clearSearch()"></button>
             </li>
-            {{> menu with depth=depth items=root.items base='tpls'}}
+            <menu-item v-for="item in filteredItems" :room="item"></menu-item>
         </ul>
-        <div no-items-label>No results found.</div>
+        <div class="no-items-label" v-if="filteredItems.length === 0">No results found.</div>
     </section>
     <!-- /sidebar -->
 
