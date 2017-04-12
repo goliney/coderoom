@@ -8,6 +8,11 @@
         "es6": true
     },
     "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
+    },
     "rules": {
         "comma-dangle": [
             "error",
@@ -32,6 +37,9 @@
         "no-console": "off"
     },
     "globals": {
-        "ace": true
+        "ace": true,
+        "Vue": true,
+        "ROOT": true,
+        "DEPTH": true
     }
 }

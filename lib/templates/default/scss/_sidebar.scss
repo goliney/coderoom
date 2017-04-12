@@ -33,7 +33,6 @@
       }
 
       .fa-remove {
-        display: none;
         position: absolute;
         right: 0;
         padding: 0 $sidebar_gutter 0 10px;
@@ -47,13 +46,8 @@
         }
       }
 
-      &.has-query .fa-remove {
-        display: inline-block;
-      }
-
       &:hover .fa-search,
-      &.has-query .fa-search,
-      &.focus .fa-search  { // .focus - not :focus
+      &.active .fa-search  {
         color: $sidebar_color_bright;
       }
 
@@ -124,16 +118,13 @@
     }
   }
 
-  [no-items-label] {
-    display: none;
+  .no-items-label {
     padding: $sidebar_gutter;
     padding-top: $sidebar_gutter * 2;
     font-style: italic;
   }
 
-  &.no-search-results {
-    [no-items-label] {
-      display: block;
-    }
+  &:not(.mounted) .no-items-label {
+    display: none;
   }
 }
